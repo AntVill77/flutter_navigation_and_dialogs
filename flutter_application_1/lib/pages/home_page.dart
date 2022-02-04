@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/second_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,15 @@ class HomePage extends StatelessWidget {
               Text("First Page"),
               SizedBox(height: 20),
               FlatButton(
-                onPressed: () {
-                  final Route route = MaterialPageRoute(
-                    builder: (_) => SecondPage(),
+                onPressed: () async {
+                  final Route route = MaterialPageRoute<String>(
+                    builder: (_) => SecondPage(name: "Ant Vill"),
                   );
-                  Navigator.push(context, route);
+                  final String data =
+                      await Navigator.push<String>(context, route);
+                  print("emoji");
                 },
-                color: Colors.redAccent,
+                color: Colors.amber,
                 child: Text("Go to second page"),
               )
             ],

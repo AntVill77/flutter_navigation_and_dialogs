@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/setting_page.dart';
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+  final String name;
+  const SecondPage({Key key, @required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +15,21 @@ class SecondPage extends StatelessWidget {
             final canPop = Navigator.canPop(context);
             print("canPop $canPop");
             if (canPop) {
-              Navigator.pop(context);
+              Navigator.pop(context, "MMDD");
             }
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              final Route route = MaterialPageRoute(
+                builder: (_) => SettingPage(),
+              );
+              Navigator.push(context, route);
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Container(
@@ -24,7 +37,7 @@ class SecondPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Second Page"),
+              Text(this.name + " Ot"),
             ],
           ),
         ),
