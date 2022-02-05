@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 
 import 'login_page.dart';
 
@@ -14,16 +15,18 @@ class SettingPage extends StatelessWidget {
           child: FlatButton(
             child: Text("Sign Out"),
             onPressed: () {
-              final Route route = MaterialPageRoute(
-                builder: (_) => LoginPage(),
-              );
-              Navigator.pushAndRemoveUntil(
+              //final Route route = MaterialPageRoute(
+              //  builder: (_) => LoginPage(),
+              // );
+              // Navigator.pushAndRemoveUntil(
+              //  context,
+              //  route,
+              // (_) => false,
+              //  );
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                route,
-                (route) {
-                  print("route.settings.name ${route.settings.name}");
-                  return route.settings.name == '/';
-                },
+                Routes.login,
+                (route) => false,
               );
             },
           ),

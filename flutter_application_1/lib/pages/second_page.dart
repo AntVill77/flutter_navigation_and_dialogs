@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/setting_page.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 
 class SecondPage extends StatelessWidget {
   final String name;
@@ -15,7 +16,7 @@ class SecondPage extends StatelessWidget {
             final canPop = Navigator.canPop(context);
             print("canPop $canPop");
             if (canPop) {
-              Navigator.pop(context, "MMDD");
+              Navigator.pop(context, "MEEDU.APP");
             }
           },
         ),
@@ -23,10 +24,11 @@ class SecondPage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
-              final Route route = MaterialPageRoute(
-                builder: (_) => SettingPage(),
-              );
-              Navigator.push(context, route);
+              // final Route route = MaterialPageRoute(
+              //    builder: (_) => SettingPage(),
+              //    );
+              //    Navigator.push(context, route);
+              Navigator.pushNamed(context, Routes.setting);
             },
           ),
         ],

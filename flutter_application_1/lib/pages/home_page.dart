@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/second_page.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -18,14 +19,16 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               FlatButton(
                 onPressed: () async {
-                  final Route route = MaterialPageRoute<String>(
-                    builder: (_) => SecondPage(name: "Ant Vill"),
-                  );
-                  final String data =
-                      await Navigator.push<String>(context, route);
-                  print("emoji");
+                  //   final Route route = MaterialPageRoute<String>(
+                  //     builder: (_) => SecondPage(name: "Ant Vill"),
+                  //  );
+                  //   final String data =
+                  //       await Navigator.push<String>(context, route);
+                  //    print("emoji");
+                  Navigator.pushNamed(context, Routes.second,
+                      arguments: "MEEDU.APP");
                 },
-                color: Colors.amber,
+                color: Colors.redAccent,
                 child: Text("Go to second page"),
               )
             ],

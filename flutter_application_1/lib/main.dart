@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/second_page.dart';
+import 'package:flutter_application_1/routes/pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(),
       home: HomePage(),
-      routes: {
-        "/second": (BuildContext context) {
-          final String name = ModalRoute.of(context).settings.arguments;
-          return SecondPage(name: name);
-        },
-      },
+      routes: Pages.routes,
     );
   }
 }
